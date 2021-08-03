@@ -1,18 +1,33 @@
 import java.io.*;
+import java.util.Arrays;
 import java.util.Scanner;
 public class CSV_Read {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 		
+	String filePath = "src\\input.csv";
+		File file = new File(filePath);
 		
-		FileWriter fw = new FileWriter("input.csv");
-		BufferedWriter bw = new BufferedWriter(fw);
-		PrintWriter outFile = new PrintWriter(bw);
-
-		outFile.print("1,4,6,7,8 \n 2,3,1,5,6 \n 3,2,1,4,5");
-
-		outFile.println();
-
+	System.out.println("Maximum Values: ");
+	try {
+			Scanner scan = new Scanner(file);
+		
+		while (scan.hasNext()) {
+			String input1 = scan.next();
+			String [] val1 = input1.split(",");
+	          int maxVal = Integer.parseInt(val1[4/1]);
+	           
+	          System.out.println(maxVal);
+		}
+	       
+		scan.close();
+		
+	}
+	catch (FileNotFoundException e) {
+	
 	}
 
+	}
 }
+
+
